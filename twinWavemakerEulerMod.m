@@ -17,7 +17,7 @@ function [lambda, eta_hat, phi_hat] = ...
 % phi_hat - velocity potential amplitudes (m^2/s)
 %
 % Author: Maciej Paprota
-% Reference: M. Paprota. 2022. A twin wavemaker model for liquid sloshing in a rectangular tank.
+% Reference: M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. Ocean Engineering, 272, 113919
 
 % Initialization:
 lambda = (2*(1:K)-1)*pi/l; % solution eigenvalues
@@ -27,11 +27,11 @@ phi_hat = zeros(length(zeta),K);
 phi_hat(1,:) = 4*xi(1)./lambda.^2/l; % initial velocity potential coefficients
 % Modified Euler scheme loop:
 for n=1:length(xi)-1
-eta_hat(n+1,:) = (eta_hat(n,:).*(1-dt^2*omega.^2/4)+ ... % eq. (2.33)
+eta_hat(n+1,:) = (eta_hat(n,:).*(1-dt^2*omega.^2/4)+ ... % eq. (33)
     dt*phi_hat(n,:).*omega.^2/g+ ...
     (zeta(n+1)+zeta(n))*dt^2*omega.^2/g./lambda.^2/l)./ ...
     (1+dt^2*omega.^2/4);
-phi_hat(n+1,:) = (phi_hat(n,:).*(1-dt^2*omega.^2/4)- ... % eq. (2.34)
+phi_hat(n+1,:) = (phi_hat(n,:).*(1-dt^2*omega.^2/4)- ... % eq. (34)
     dt*g*eta_hat(n,:)+...
     (zeta(n+1)+zeta(n))*2*dt./lambda.^2/l)./ ...
     (1+dt^2*omega.^2/4);
