@@ -10,7 +10,7 @@ function [vert,fac] = tankCoords(C, X, Y, Z)
 % fac - faces indicators
 %
 % Author: Maciej Paprota
-% Reference: M. Paprota. 2022. A twin wavemaker model for liquid sloshing in a rectangular tank
+% Reference: M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. Ocean Engineering, 272, 113919
 
 x_vert = [0 1 1 0 0 1 1 0]*X-X/2+C(1);
 y_vert = [0 0 1 1 0 0 1 1]*Y-Y/2+C(2);
