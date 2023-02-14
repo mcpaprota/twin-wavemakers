@@ -1,5 +1,6 @@
 % TWINWAVEMAKER
 %
+%   Reference: M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. Ocean Engineering, 272, 113919
 %   Functions:
 %   dispersionRelation       - calculates wave number based on linear dispertion relationship
 %   freeSurfaceElevation     - calculates free-surface elevation based on amplitudes and eigenvalues of cosine expansion
