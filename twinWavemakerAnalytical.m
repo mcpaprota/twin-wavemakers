@@ -17,16 +17,16 @@ function [lambda, eta_hat, phi_hat] = ...
 % phi_hat - velocity potential amplitudes (m^2/s)
 %
 % Author: Maciej Paprota
-% Reference: M. Paprota. 2022. A twin wavemaker model for liquid sloshing in a rectangular tank
+% Reference: M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. Ocean Engineering, 272, 113919
 
 lambda = (2*(1:K)-1)*pi/l; % solution eigenvalues (rad/m)
 omega = sqrt(g*lambda.*tanh(lambda*d)); % solution frequences (rad/s)
 alpha = -4*chi_hat*sigma^2*tanh(lambda*d)./lambda/l;
-eta_hat = (sin(t*sigma)-sin(t*omega).*omega/sigma).*alpha./(omega.^2-sigma^2); % eq. (2.28)
-phi_hat = (cos(t*sigma)*sigma^2-cos(t*omega).*omega.^2).*... % eq. (2.29)
+eta_hat = (sin(t*sigma)-sin(t*omega).*omega/sigma).*alpha./(omega.^2-sigma^2); % eq. (28)
+phi_hat = (cos(t*sigma)*sigma^2-cos(t*omega).*omega.^2).*... % eq. (29)
     alpha*g/sigma./(omega.^2-sigma^2)./omega.^2;
 eta_hat(:,omega==sigma) = -(sigma*cos(t*sigma).*t+sin(t*sigma))*...
-    alpha(omega==sigma)/2/sigma^2; % resonance
+    alpha(omega==sigma)/2/sigma^2; % resonance eq. (28)
 phi_hat(:,omega==sigma) = (sin(t*sigma).*t*sigma-2*cos(t*sigma))*...
-    alpha(omega==sigma)*g/2/sigma^3; % resonance
+    alpha(omega==sigma)*g/2/sigma^3; % resonance eq. (29)
 end
