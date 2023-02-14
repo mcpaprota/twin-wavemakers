@@ -17,10 +17,10 @@ function [lambda, phi_hat] = ...
 % phi_hat - velocity potential amplitudes (m^2/s)
 %
 % Author: Maciej Paprota
-% Reference: M. Paprota. 2022. A twin wavemaker model for liquid sloshing in a rectangular tank
+% Reference: M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. Ocean Engineering, 272, 113919
 
 lambda = (2*(1:K)-1)*pi/l; % solution eigenvalues (rad/m)
 omega = sqrt(g*lambda.*tanh(lambda*d)); % solution frequences (rad/s)
 phi_hat = (cos(t*sigma)*sigma^2-cos(t*omega).*omega.^2).*...
-    (-1).^(1:K).*4*chi_hat*sigma./(sigma^2-omega.^2)./lambda.^2/l; % amplitudes in eq. (2.32)
+    (-1).^(1:K).*4*chi_hat*sigma./(sigma^2-omega.^2)./lambda.^2/l; % amplitudes in eq. (32)
 end
