@@ -1,6 +1,6 @@
 % Comparison of twin wavemaker problem solution and Faltinsen (1978) solution to sloshing
 % Author: Maciej Paprota
-% Reference: M. Paprota. 2022. A twin wavemaker model for liquid sloshing in a rectangular tank.
+% Reference: M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. Ocean Engineering, 272, 113919
 
 clc, clear
 set(0,'defaulttextinterpreter','latex');
