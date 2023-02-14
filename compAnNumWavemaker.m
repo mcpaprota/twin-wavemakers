@@ -1,6 +1,6 @@
 % Comparison of analytical and numerical solution to linear wavemaker problem
 % Author: Maciej Paprota
-% Reference: M. Paprota. 2022. A twin wavemaker model for liquid sloshing in a rectangular tank.
+% Reference: M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. Ocean Engineering, 272, 113919
 
 clc, clear
 set(0,'defaulttextinterpreter','latex');
