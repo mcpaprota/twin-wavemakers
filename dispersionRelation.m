@@ -10,7 +10,7 @@ function kappa = dispersionRelation(d,omega,g)
 % kappa - wave numbers (1/m)
 %
 % Author: Maciej Paprota
-% Reference: M. Paprota. 2022. A twin wavemaker model for liquid sloshing in a rectangular tank
+% Reference: M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. Ocean Engineering, 272, 113919
 
 eps = 10^(-12); % tolerance
 kappa = omega.*omega/g; % initial kappa values
