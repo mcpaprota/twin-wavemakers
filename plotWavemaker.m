@@ -1,6 +1,6 @@
 % Plotting mechanically generated waves in a 2D wave flume
 % Author: Maciej Paprota
-% Reference: M. Paprota. 2022. A twin wavemaker model for liquid sloshing in a rectangular tank.
+% Reference: M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. Ocean Engineering, 272, 113919
 
 clear, clc
 set(0,'defaulttextinterpreter','latex');
