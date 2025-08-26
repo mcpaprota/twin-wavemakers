@@ -5,7 +5,7 @@ A comprehensive MATLAB toolbox for calculating kinematics of linear oscillations
 ## Overview
 
 The Twin Wavemakers toolbox implements advanced mathematical models for:
-- **Linear sloshing analysis** in closed rectangular tanks using a cocept of twin piston-type wavemakers
+- **Linear sloshing analysis** in closed rectangular tanks using a concept of twin piston-type wavemakers
 - **Wave generation and propagation** in wave flumes with reflection at vertical walls
 - **Analytical and semi-analytical solutions** using eigenfunction expansion methods
 - **2D and 3D visualization** of fluid motion and free surface elevation
