@@ -1,2 +1,149 @@
-# twin-wavemakers
-Twin wavemakers is a Matlab toolbox for calculating kinematics of linear oscillations of a liquid in a rectangular container driven by the motion of its walls. Reference: M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. Ocean Engineering, 272, 113919
+# Twin Wavemakers MATLAB Toolbox
+
+A comprehensive MATLAB toolbox for calculating kinematics of linear oscillations of liquids in rectangular containers driven by the motion of their walls. This toolbox provides both analytical and numerical solutions for twin wavemaker problems, enabling the study of liquid sloshing phenomena and mechanically-generated waves.
+
+## Overview
+
+The Twin Wavemakers toolbox implements advanced mathematical models for:
+- **Linear sloshing analysis** in closed rectangular tanks with twin piston-type wavemakers
+- **Wave generation and propagation** in wave flumes with reflection at vertical walls
+- **Analytical and semi-analytical solutions** using eigenfunction expansion methods
+- **2D and 3D visualization** of fluid motion and free surface elevation
+- **Comparison and validation** with established theoretical solutions
+
+## Key Features
+
+- **Dual Solution Methods**: Both analytical (exact) and numerical (semi-analytical) approaches
+- **Twin Wavemaker Configuration**: Simultaneous operation of two piston-type wavemakers
+- **Comprehensive Kinematics**: Free surface elevation, velocity potential, and velocity components
+- **Advanced Visualization**: 2D and 3D plotting capabilities with real-time animation
+- **Validation Tools**: Comparison scripts for analytical vs. numerical solutions
+- **Flexible Configuration**: Adjustable tank dimensions, wave parameters, and simulation settings
+
+## Installation
+
+1. Clone or download this repository to your local machine
+2. Add the toolbox directory to your MATLAB path:
+   ```matlab
+   addpath('/path/to/twin-wavemakers')
+   ```
+3. Verify installation by running:
+   ```matlab
+   help twinWavemakerAnalytical
+   ```
+
+## Requirements
+
+- MATLAB R2016b or later
+- No additional toolboxes required (uses base MATLAB functionality)
+
+## Quick Start
+
+### Basic Twin Wavemaker Simulation
+```matlab
+% Set up basic parameters
+g = 9.8145;           % gravity acceleration (m/s^2)
+l = 8; d = 2;         % tank length and depth (m)
+T = 3; H = 0.05;      % wave period (s) and height (m)
+nT = 10; nTi = 3;     % total and startup periods
+Tdt = 1000;           % time steps per period
+K = 16;               % number of eigenvalues
+
+% Generate paddle motion
+theta = pi/2;         % phase lag
+[chi, xi, zeta, dt, nt] = paddleMotionRegular(d,H,T,nT,nTi,Tdt,g,theta);
+
+% Solve twin wavemaker problem
+[lambda, eta_hat, phi_hat] = twinWavemakerEulerMod(l,d,xi,zeta,dt,K,g);
+
+% Visualize results
+plotTwinWavemaker     % Run 2D animation
+```
+
+### Compare Analytical vs Numerical Solutions
+```matlab
+compAnNumTwinWavemaker    % Compare twin wavemaker solutions
+compAnNumWavemaker        % Compare single wavemaker solutions
+compAnTwinWavemakerF      % Compare with Faltinsen (1978) solution
+```
+
+## Repository Structure
+
+### Core Functions
+- `twinWavemakerAnalytical.m` - Analytical solution for twin wavemaker problem
+- `twinWavemakerEulerMod.m` - Semi-analytical solution using modified Euler scheme
+- `wavemakerAnalytical.m` - Analytical solution for single wavemaker
+- `wavemakerEulerMod.m` - Semi-analytical solution for single wavemaker
+- `velocityComponents.m` - Calculate velocity field components
+- `freeSurfaceElevation.m` - Calculate free surface elevation
+- `dispersionRelation.m` - Wave number calculation from dispersion relation
+
+### Visualization Scripts
+- `plotTwinWavemaker.m` - 2D visualization of twin wavemaker sloshing
+- `plotTwinWavemaker3D.m` - 3D visualization with velocity fields
+- `plotWavemaker.m` - 2D visualization of single wavemaker waves
+
+### Validation Scripts
+- `compAnNumTwinWavemaker.m` - Compare analytical vs numerical twin wavemaker solutions
+- `compAnNumWavemaker.m` - Compare analytical vs numerical single wavemaker solutions
+- `compAnTwinWavemakerF.m` - Validate against Faltinsen (1978) theory
+
+### Utility Functions
+- `paddleMotionRegular.m` - Generate regular paddle motion with startup ramp
+- `tankCoords.m` - Define tank geometry for 3D visualization
+- `Contents.m` - Complete function and script documentation
+
+## Examples
+
+### 3D Visualization
+```matlab
+% Run 3D twin wavemaker visualization
+plotTwinWavemaker3D
+```
+
+### Custom Parameter Study
+```matlab
+% Study effect of tank length on sloshing
+l_values = [5, 8, 12, 15];
+for i = 1:length(l_values)
+    [lambda, eta_hat, phi_hat] = twinWavemakerEulerMod(l_values(i),d,xi,zeta,dt,K,g);
+    % Analyze results...
+end
+```
+
+## Mathematical Background
+
+This toolbox implements the theoretical framework described in the reference paper, including:
+- Linearized potential flow theory
+- Eigenfunction expansion methods
+- Boundary value problem solutions
+- Modified Euler time-marching schemes
+
+The twin wavemaker configuration allows for the study of complex sloshing patterns that arise from the interaction of waves generated by two synchronized or phase-shifted piston-type wavemakers.
+
+## Author
+
+**Maciej Paprota**  
+Faculty of Ocean Engineering and Ship Technology  
+Gdansk University of Technology
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Citation
+
+If you use this toolbox in your research, please cite:
+
+```
+M. Paprota. 2023. A twin wavemaker model for liquid sloshing in a rectangular tank. 
+Ocean Engineering, 272, 113919.
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
+
+## Support
+
+For questions or issues, please open an issue on GitHub or contact the author.
